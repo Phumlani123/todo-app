@@ -10,17 +10,19 @@
                             
                             <div class="list-wrapper">
                                 <ul class=" flex-column-reverse todo-list">
-                                    
-                                    <li class=""  v-for="todo in todos" :key="todo.id" :class="{completed: todo.complete}">
-                                        <div  class="form-check  mr-auto">
-                                            <label class="form-check-label">
-                                                <input v-model="todo.complete"  class="checkbox " type="checkbox"> 
-                                                {{ todo.desc }} 
-                                            </label>
-                                        </div> 
-                                        <i @click="editItem(todo.id)" class="edit-item mdi my-auto "></i>
-                                        <i @click="deleteItem(todo.id)" class="remove mdi my-auto"></i>
-                                    </li>
+                                    <div v-if="todos">
+                                        <li class=""  v-for="todo in todos" :key="todo.id" :class="{completed: todo.complete}">
+                                            <div  class="form-check  mr-auto">
+                                                <label class="form-check-label">
+                                                    <input disabled v-model="todo.complete"  class="checkbox " type="checkbox"> 
+                                                    {{ todo.desc }} 
+                                                </label>
+                                            </div> 
+                                            <i @click="editItem(todo.id)" class="edit-item mdi my-auto "></i>
+                                            <i @click="deleteItem(todo.id)" class="remove mdi my-auto"></i>
+                                        </li>
+                                    </div>
+                                    <h3 v-else>No Todos in your list </h3>
                                 </ul>
                             </div>
                         </div>

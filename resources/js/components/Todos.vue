@@ -1,6 +1,6 @@
 <template>
 
-    <div class="page-content page-container" id="page-content">
+    <div class="page-content page-container mb-5" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
                 <div class="col-md-10">
@@ -20,17 +20,20 @@
                             </div>
                             <div class="list-wrapper">
                                 <ul class=" flex-column-reverse todo-list">
+                                    <div v-if="todos">
+                                        <li class=""  v-for="todo in todos" :key="todo.id" :class="{completed: todo.complete}">
+                                            <div  class="form-check  mr-auto">
+                                                <label @click="editItemStatus(todo)" class="form-check-label">
+                                                    <input v-model="todo.complete"  class="checkbox " type="checkbox"> 
+                                                    {{ todo.desc }} 
+                                                </label>
+                                            </div> 
+                                            <i @click="editItem(todo.id)" class="edit-item mdi my-auto "></i>
+                                            <i @click="deleteItem(todo.id)" class="remove mdi my-auto"></i>
+                                        </li>
+                                    </div>
+                                    <h3 v-else>No Todos in your list <br><small>please create them by completing the form above</small></h3>
                                     
-                                    <li class=""  v-for="todo in todos" :key="todo.id" :class="{completed: todo.complete}">
-                                        <div  class="form-check  mr-auto">
-                                            <label @click="editItemStatus(todo)" class="form-check-label">
-                                                <input v-model="todo.complete"  class="checkbox " type="checkbox"> 
-                                                {{ todo.desc }} 
-                                            </label>
-                                        </div> 
-                                        <i @click="editItem(todo.id)" class="edit-item mdi my-auto "></i>
-                                        <i @click="deleteItem(todo.id)" class="remove mdi my-auto"></i>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -85,8 +88,6 @@
                     .catch(err => {loader.hide(), this.$swal('Something went wrong')});
             },
             editItemStatus(item) {
-                console.log(this.todo)
-                console.log(item)
                 let loader = this.$loading.show();
                 this.axios
                     .patch(`http://localhost:8000/api/todos/${item.id}`, {complete: !item.complete})

@@ -31,8 +31,9 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 
 Vue.component('home-component', require('./components/HomeComponent.vue').default);
 Vue.component('edit-todo', require('./components/EditTodo.vue').default);
-Vue.component('create-todo', require('./components/CreateTodo.vue').default);
 Vue.component('all-todos', require('./components/Todos.vue').default);
+Vue.component('active-todos', require('./components/Active.vue').default);
+Vue.component('complete-todos', require('./components/Complete.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

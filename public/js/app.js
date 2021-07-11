@@ -1878,6 +1878,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -1969,6 +1971,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -1981,7 +1985,6 @@ __webpack_require__.r(__webpack_exports__);
 
     var loader = this.$loading.show();
     this.axios.get('http://localhost:8000/api/todos/').then(function (response) {
-      console.log(response.data);
       _this.todos = response.data.filter(function (item) {
         return item.complete == true;
       });
@@ -2012,55 +2015,6 @@ __webpack_require__.r(__webpack_exports__);
     editItem: function editItem(id) {
       this.$router.push("/edit/".concat(id));
     }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CreateTodo.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CreateTodo.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      todo: {}
-    };
-  },
-  methods: {// addItem() {
-    //     this.axios
-    //         .post('http://localhost:8000/api/todo_items', this.todo)
-    //         .then(response => (
-    //             this.$router.push({ name: 'home' })
-    //         ))
-    //         .catch(err => console.log(err))
-    //         .finally(() => this.loading = false)
-    // }
   }
 });
 
@@ -2126,7 +2080,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       var loader = this.$loading.show();
-      this.axios.patch("http://localhost:8000/api/todos/".concat(this.$route.params.id), this.todo).then(function (res) {
+      this.axios.patch("http://localhost:8000/api/todos/".concat(this.$route.params.id), this.todo).then(function (response) {
         loader.hide();
 
         _this2.$swal(response.data);
@@ -2238,6 +2192,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2291,8 +2248,6 @@ __webpack_require__.r(__webpack_exports__);
     editItemStatus: function editItemStatus(item) {
       var _this4 = this;
 
-      console.log(this.todo);
-      console.log(item);
       var loader = this.$loading.show();
       this.axios.patch("http://localhost:8000/api/todos/".concat(item.id), {
         complete: !item.complete
@@ -2361,8 +2316,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 
 Vue.component('home-component', __webpack_require__(/*! ./components/HomeComponent.vue */ "./resources/js/components/HomeComponent.vue").default);
 Vue.component('edit-todo', __webpack_require__(/*! ./components/EditTodo.vue */ "./resources/js/components/EditTodo.vue").default);
-Vue.component('create-todo', __webpack_require__(/*! ./components/CreateTodo.vue */ "./resources/js/components/CreateTodo.vue").default);
 Vue.component('all-todos', __webpack_require__(/*! ./components/Todos.vue */ "./resources/js/components/Todos.vue").default);
+Vue.component('active-todos', __webpack_require__(/*! ./components/Active.vue */ "./resources/js/components/Active.vue").default);
+Vue.component('complete-todos', __webpack_require__(/*! ./components/Complete.vue */ "./resources/js/components/Complete.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -2440,11 +2396,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "routes": () => (/* binding */ routes)
 /* harmony export */ });
 /* harmony import */ var _components_Todos_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Todos.vue */ "./resources/js/components/Todos.vue");
-/* harmony import */ var _components_CreateTodo_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/CreateTodo.vue */ "./resources/js/components/CreateTodo.vue");
-/* harmony import */ var _components_EditTodo_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/EditTodo.vue */ "./resources/js/components/EditTodo.vue");
-/* harmony import */ var _components_Active_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Active.vue */ "./resources/js/components/Active.vue");
-/* harmony import */ var _components_Complete_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Complete.vue */ "./resources/js/components/Complete.vue");
-
+/* harmony import */ var _components_EditTodo_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/EditTodo.vue */ "./resources/js/components/EditTodo.vue");
+/* harmony import */ var _components_Active_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Active.vue */ "./resources/js/components/Active.vue");
+/* harmony import */ var _components_Complete_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Complete.vue */ "./resources/js/components/Complete.vue");
 
 
 
@@ -2454,21 +2408,17 @@ var routes = [{
   path: '/',
   component: _components_Todos_vue__WEBPACK_IMPORTED_MODULE_0__.default
 }, {
-  name: 'create',
-  path: '/create',
-  component: _components_CreateTodo_vue__WEBPACK_IMPORTED_MODULE_1__.default
-}, {
   name: 'edit',
   path: '/edit/:id',
-  component: _components_EditTodo_vue__WEBPACK_IMPORTED_MODULE_2__.default
+  component: _components_EditTodo_vue__WEBPACK_IMPORTED_MODULE_1__.default
 }, {
   name: 'active',
   path: '/active',
-  component: _components_Active_vue__WEBPACK_IMPORTED_MODULE_3__.default
+  component: _components_Active_vue__WEBPACK_IMPORTED_MODULE_2__.default
 }, {
   name: 'complete',
   path: '/complete',
-  component: _components_Complete_vue__WEBPACK_IMPORTED_MODULE_4__.default
+  component: _components_Complete_vue__WEBPACK_IMPORTED_MODULE_3__.default
 }];
 
 /***/ }),
@@ -38410,45 +38360,6 @@ component.options.__file = "resources/js/components/Complete.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/CreateTodo.vue":
-/*!************************************************!*\
-  !*** ./resources/js/components/CreateTodo.vue ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _CreateTodo_vue_vue_type_template_id_7563cb0d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateTodo.vue?vue&type=template&id=7563cb0d& */ "./resources/js/components/CreateTodo.vue?vue&type=template&id=7563cb0d&");
-/* harmony import */ var _CreateTodo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateTodo.vue?vue&type=script&lang=js& */ "./resources/js/components/CreateTodo.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _CreateTodo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _CreateTodo_vue_vue_type_template_id_7563cb0d___WEBPACK_IMPORTED_MODULE_0__.render,
-  _CreateTodo_vue_vue_type_template_id_7563cb0d___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CreateTodo.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/components/EditTodo.vue":
 /*!**********************************************!*\
   !*** ./resources/js/components/EditTodo.vue ***!
@@ -38598,22 +38509,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/CreateTodo.vue?vue&type=script&lang=js&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/CreateTodo.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateTodo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CreateTodo.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CreateTodo.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateTodo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
-
 /***/ "./resources/js/components/EditTodo.vue?vue&type=script&lang=js&":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/EditTodo.vue?vue&type=script&lang=js& ***!
@@ -38692,23 +38587,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Complete_vue_vue_type_template_id_01bf0224___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Complete_vue_vue_type_template_id_01bf0224___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Complete.vue?vue&type=template&id=01bf0224& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Complete.vue?vue&type=template&id=01bf0224&");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/CreateTodo.vue?vue&type=template&id=7563cb0d&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/CreateTodo.vue?vue&type=template&id=7563cb0d& ***!
-  \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateTodo_vue_vue_type_template_id_7563cb0d___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateTodo_vue_vue_type_template_id_7563cb0d___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateTodo_vue_vue_type_template_id_7563cb0d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CreateTodo.vue?vue&type=template&id=7563cb0d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CreateTodo.vue?vue&type=template&id=7563cb0d&");
 
 
 /***/ }),
@@ -38803,89 +38681,123 @@ var render = function() {
                     _c(
                       "ul",
                       { staticClass: " flex-column-reverse todo-list" },
-                      _vm._l(_vm.todos, function(todo) {
-                        return _c(
-                          "li",
-                          { key: todo.id, class: { completed: todo.complete } },
-                          [
-                            _c("div", { staticClass: "form-check  mr-auto" }, [
-                              _c("label", { staticClass: "form-check-label" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: todo.complete,
-                                      expression: "todo.complete"
-                                    }
-                                  ],
-                                  staticClass: "checkbox ",
-                                  attrs: { type: "checkbox" },
-                                  domProps: {
-                                    checked: Array.isArray(todo.complete)
-                                      ? _vm._i(todo.complete, null) > -1
-                                      : todo.complete
+                      [
+                        _vm.todos
+                          ? _c(
+                              "div",
+                              _vm._l(_vm.todos, function(todo) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: todo.id,
+                                    class: { completed: todo.complete }
                                   },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a = todo.complete,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = null,
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              todo,
-                                              "complete",
-                                              $$a.concat([$$v])
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "form-check  mr-auto" },
+                                      [
+                                        _c(
+                                          "label",
+                                          { staticClass: "form-check-label" },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: todo.complete,
+                                                  expression: "todo.complete"
+                                                }
+                                              ],
+                                              staticClass: "checkbox ",
+                                              attrs: {
+                                                disabled: "",
+                                                type: "checkbox"
+                                              },
+                                              domProps: {
+                                                checked: Array.isArray(
+                                                  todo.complete
+                                                )
+                                                  ? _vm._i(
+                                                      todo.complete,
+                                                      null
+                                                    ) > -1
+                                                  : todo.complete
+                                              },
+                                              on: {
+                                                change: function($event) {
+                                                  var $$a = todo.complete,
+                                                    $$el = $event.target,
+                                                    $$c = $$el.checked
+                                                      ? true
+                                                      : false
+                                                  if (Array.isArray($$a)) {
+                                                    var $$v = null,
+                                                      $$i = _vm._i($$a, $$v)
+                                                    if ($$el.checked) {
+                                                      $$i < 0 &&
+                                                        _vm.$set(
+                                                          todo,
+                                                          "complete",
+                                                          $$a.concat([$$v])
+                                                        )
+                                                    } else {
+                                                      $$i > -1 &&
+                                                        _vm.$set(
+                                                          todo,
+                                                          "complete",
+                                                          $$a
+                                                            .slice(0, $$i)
+                                                            .concat(
+                                                              $$a.slice($$i + 1)
+                                                            )
+                                                        )
+                                                    }
+                                                  } else {
+                                                    _vm.$set(
+                                                      todo,
+                                                      "complete",
+                                                      $$c
+                                                    )
+                                                  }
+                                                }
+                                              }
+                                            }),
+                                            _vm._v(
+                                              " \n                                                " +
+                                                _vm._s(todo.desc) +
+                                                " \n                                            "
                                             )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              todo,
-                                              "complete",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "edit-item mdi my-auto ",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.editItem(todo.id)
                                         }
-                                      } else {
-                                        _vm.$set(todo, "complete", $$c)
                                       }
-                                    }
-                                  }
-                                }),
-                                _vm._v(
-                                  " \n                                            " +
-                                    _vm._s(todo.desc) +
-                                    " \n                                        "
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "remove mdi my-auto",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.deleteItem(todo.id)
+                                        }
+                                      }
+                                    })
+                                  ]
                                 )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("i", {
-                              staticClass: "edit-item mdi my-auto ",
-                              on: {
-                                click: function($event) {
-                                  return _vm.editItem(todo.id)
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("i", {
-                              staticClass: "remove mdi my-auto",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteItem(todo.id)
-                                }
-                              }
-                            })
-                          ]
-                        )
-                      }),
-                      0
+                              }),
+                              0
+                            )
+                          : _c("h3", [_vm._v("No Todos in your list ")])
+                      ]
                     )
                   ])
                 ])
@@ -38943,89 +38855,123 @@ var render = function() {
                     _c(
                       "ul",
                       { staticClass: " flex-column-reverse todo-list" },
-                      _vm._l(_vm.todos, function(todo) {
-                        return _c(
-                          "li",
-                          { key: todo.id, class: { completed: todo.complete } },
-                          [
-                            _c("div", { staticClass: "form-check  mr-auto" }, [
-                              _c("label", { staticClass: "form-check-label" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: todo.complete,
-                                      expression: "todo.complete"
-                                    }
-                                  ],
-                                  staticClass: "checkbox ",
-                                  attrs: { type: "checkbox" },
-                                  domProps: {
-                                    checked: Array.isArray(todo.complete)
-                                      ? _vm._i(todo.complete, null) > -1
-                                      : todo.complete
+                      [
+                        _vm.todos
+                          ? _c(
+                              "div",
+                              _vm._l(_vm.todos, function(todo) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: todo.id,
+                                    class: { completed: todo.complete }
                                   },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a = todo.complete,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = null,
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              todo,
-                                              "complete",
-                                              $$a.concat([$$v])
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "form-check  mr-auto" },
+                                      [
+                                        _c(
+                                          "label",
+                                          { staticClass: "form-check-label" },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: todo.complete,
+                                                  expression: "todo.complete"
+                                                }
+                                              ],
+                                              staticClass: "checkbox ",
+                                              attrs: {
+                                                disabled: "",
+                                                type: "checkbox"
+                                              },
+                                              domProps: {
+                                                checked: Array.isArray(
+                                                  todo.complete
+                                                )
+                                                  ? _vm._i(
+                                                      todo.complete,
+                                                      null
+                                                    ) > -1
+                                                  : todo.complete
+                                              },
+                                              on: {
+                                                change: function($event) {
+                                                  var $$a = todo.complete,
+                                                    $$el = $event.target,
+                                                    $$c = $$el.checked
+                                                      ? true
+                                                      : false
+                                                  if (Array.isArray($$a)) {
+                                                    var $$v = null,
+                                                      $$i = _vm._i($$a, $$v)
+                                                    if ($$el.checked) {
+                                                      $$i < 0 &&
+                                                        _vm.$set(
+                                                          todo,
+                                                          "complete",
+                                                          $$a.concat([$$v])
+                                                        )
+                                                    } else {
+                                                      $$i > -1 &&
+                                                        _vm.$set(
+                                                          todo,
+                                                          "complete",
+                                                          $$a
+                                                            .slice(0, $$i)
+                                                            .concat(
+                                                              $$a.slice($$i + 1)
+                                                            )
+                                                        )
+                                                    }
+                                                  } else {
+                                                    _vm.$set(
+                                                      todo,
+                                                      "complete",
+                                                      $$c
+                                                    )
+                                                  }
+                                                }
+                                              }
+                                            }),
+                                            _vm._v(
+                                              " \n                                                " +
+                                                _vm._s(todo.desc) +
+                                                " \n                                            "
                                             )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              todo,
-                                              "complete",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "edit-item mdi my-auto ",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.editItem(todo.id)
                                         }
-                                      } else {
-                                        _vm.$set(todo, "complete", $$c)
                                       }
-                                    }
-                                  }
-                                }),
-                                _vm._v(
-                                  " \n                                            " +
-                                    _vm._s(todo.desc) +
-                                    " \n                                        "
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "remove mdi my-auto",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.deleteItem(todo.id)
+                                        }
+                                      }
+                                    })
+                                  ]
                                 )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("i", {
-                              staticClass: "edit-item mdi my-auto ",
-                              on: {
-                                click: function($event) {
-                                  return _vm.editItem(todo.id)
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("i", {
-                              staticClass: "remove mdi my-auto",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteItem(todo.id)
-                                }
-                              }
-                            })
-                          ]
-                        )
-                      }),
-                      0
+                              }),
+                              0
+                            )
+                          : _c("h3", [_vm._v("No Todos in your list ")])
+                      ]
                     )
                   ])
                 ])
@@ -39036,31 +38982,6 @@ var render = function() {
       ])
     ]
   )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CreateTodo.vue?vue&type=template&id=7563cb0d&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CreateTodo.vue?vue&type=template&id=7563cb0d& ***!
-  \**********************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("test")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39230,7 +39151,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "page-content page-container",
+          staticClass: "page-content page-container ",
           attrs: { id: "page-content" }
         },
         [
@@ -39327,7 +39248,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "page-content page-container",
+      staticClass: "page-content page-container mb-5",
       attrs: { id: "page-content" }
     },
     [
@@ -39419,100 +39340,135 @@ var render = function() {
                     _c(
                       "ul",
                       { staticClass: " flex-column-reverse todo-list" },
-                      _vm._l(_vm.todos, function(todo) {
-                        return _c(
-                          "li",
-                          { key: todo.id, class: { completed: todo.complete } },
-                          [
-                            _c("div", { staticClass: "form-check  mr-auto" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "form-check-label",
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.editItemStatus(todo)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: todo.complete,
-                                        expression: "todo.complete"
-                                      }
-                                    ],
-                                    staticClass: "checkbox ",
-                                    attrs: { type: "checkbox" },
-                                    domProps: {
-                                      checked: Array.isArray(todo.complete)
-                                        ? _vm._i(todo.complete, null) > -1
-                                        : todo.complete
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        var $$a = todo.complete,
-                                          $$el = $event.target,
-                                          $$c = $$el.checked ? true : false
-                                        if (Array.isArray($$a)) {
-                                          var $$v = null,
-                                            $$i = _vm._i($$a, $$v)
-                                          if ($$el.checked) {
-                                            $$i < 0 &&
-                                              _vm.$set(
-                                                todo,
-                                                "complete",
-                                                $$a.concat([$$v])
-                                              )
-                                          } else {
-                                            $$i > -1 &&
-                                              _vm.$set(
-                                                todo,
-                                                "complete",
-                                                $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1))
-                                              )
-                                          }
-                                        } else {
-                                          _vm.$set(todo, "complete", $$c)
+                      [
+                        _vm.todos
+                          ? _c(
+                              "div",
+                              _vm._l(_vm.todos, function(todo) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: todo.id,
+                                    class: { completed: todo.complete }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "form-check  mr-auto" },
+                                      [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "form-check-label",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.editItemStatus(todo)
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: todo.complete,
+                                                  expression: "todo.complete"
+                                                }
+                                              ],
+                                              staticClass: "checkbox ",
+                                              attrs: { type: "checkbox" },
+                                              domProps: {
+                                                checked: Array.isArray(
+                                                  todo.complete
+                                                )
+                                                  ? _vm._i(
+                                                      todo.complete,
+                                                      null
+                                                    ) > -1
+                                                  : todo.complete
+                                              },
+                                              on: {
+                                                change: function($event) {
+                                                  var $$a = todo.complete,
+                                                    $$el = $event.target,
+                                                    $$c = $$el.checked
+                                                      ? true
+                                                      : false
+                                                  if (Array.isArray($$a)) {
+                                                    var $$v = null,
+                                                      $$i = _vm._i($$a, $$v)
+                                                    if ($$el.checked) {
+                                                      $$i < 0 &&
+                                                        _vm.$set(
+                                                          todo,
+                                                          "complete",
+                                                          $$a.concat([$$v])
+                                                        )
+                                                    } else {
+                                                      $$i > -1 &&
+                                                        _vm.$set(
+                                                          todo,
+                                                          "complete",
+                                                          $$a
+                                                            .slice(0, $$i)
+                                                            .concat(
+                                                              $$a.slice($$i + 1)
+                                                            )
+                                                        )
+                                                    }
+                                                  } else {
+                                                    _vm.$set(
+                                                      todo,
+                                                      "complete",
+                                                      $$c
+                                                    )
+                                                  }
+                                                }
+                                              }
+                                            }),
+                                            _vm._v(
+                                              " \n                                                " +
+                                                _vm._s(todo.desc) +
+                                                " \n                                            "
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "edit-item mdi my-auto ",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.editItem(todo.id)
                                         }
                                       }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    " \n                                            " +
-                                      _vm._s(todo.desc) +
-                                      " \n                                        "
-                                  )
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("i", {
-                              staticClass: "edit-item mdi my-auto ",
-                              on: {
-                                click: function($event) {
-                                  return _vm.editItem(todo.id)
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("i", {
-                              staticClass: "remove mdi my-auto",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteItem(todo.id)
-                                }
-                              }
-                            })
-                          ]
-                        )
-                      }),
-                      0
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "remove mdi my-auto",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.deleteItem(todo.id)
+                                        }
+                                      }
+                                    })
+                                  ]
+                                )
+                              }),
+                              0
+                            )
+                          : _c("h3", [
+                              _vm._v("No Todos in your list "),
+                              _c("br"),
+                              _c("small", [
+                                _vm._v(
+                                  "please create them by completing the form above"
+                                )
+                              ])
+                            ])
+                      ]
                     )
                   ])
                 ])

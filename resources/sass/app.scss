@@ -6,3 +6,126 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.mdi:before {
+    font-family: FontAwesome;
+    content: "\f00d";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: text-top;
+    font-size: .7em;
+    color: #65a2b9;
+    cursor: pointer;
+  }
+  
+  .edit-item:before {
+    font-family: FontAwesome;
+      content: "\f044";
+      display: inline-block;
+      padding-right: 8px;
+      vertical-align: text-bottom;
+      font-size: .9em;
+      font-style: normal;
+      color: #65a2b9;
+      cursor: pointer;
+  }
+  
+  li {
+    display: flex;
+  }
+  .ml-auto,
+  .list-wrapper,
+  .mx-auto {
+      margin-left: auto !important
+  }
+  
+  .list-wrapper ul li {
+    font-size: 1rem;
+    padding: .4rem 0;
+    border-bottom: 1px solid #f3f3f3
+  }
+  
+  .todo-list {
+    width: 90%;
+  }
+  
+  .form-check {
+      .form-check-label {
+        input[type="checkbox"]:checked+.input-helper:before {
+            background: #65a2b9;
+            border-width: 0
+          }
+      }
+  }
+  
+  .remove{
+    font-size: 1.3em;
+    cursor: pointer;
+  }
+  
+  /* .edit {
+    cursor: pointer;
+  } */
+  
+  .mt-8 {
+    margin: 4.5rem 0 2em 0!important;
+    padding: .5em 1.25rem;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  
+  
+  .form-check .form-check-label {
+    min-height: 18px;
+    display: block;
+    margin-left: .3rem;
+    font-size: 1rem;
+    line-height: 1.5
+  }
+  
+  .list-wrapper .completed {
+    text-decoration: line-through;
+    text-decoration-color: #3da5f4;
+    text-decoration-thickness: 2px;
+  }
+  
+  .list-wrapper ul li .form-check {
+    max-width: 90%;
+    margin-top: .25rem;
+    margin-bottom: .25rem
+  }
+  
+
+
+  .list-wrapper {
+      ul {
+          li {
+              .form-check .form-check-label{
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width: 100%;
+                white-space: nowrap
+              }
+          }
+      }
+  }
+
+
+  .btn {
+
+    padding: .7rem 1.5rem;
+    font-size: 0.9rem;
+    
+  }
+  .form-control {
+    min-height: 100%!important;
+    height: 3.3em!important
+}
+
+@media screen and (max-width: 769px) {
+    .todo-list {
+        width: 100%;
+        padding: 0;
+    }
+    
+}

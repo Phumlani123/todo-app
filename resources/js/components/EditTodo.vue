@@ -47,7 +47,7 @@
                 let loader = this.$loading.show();
                 this.axios
                     .patch(`http://localhost:8000/api/todos/${this.$route.params.id}`, this.todo)
-                    .then((res) => {
+                    .then((response) => {
                         loader.hide();
                         this.$swal(response.data);
                         this.$router.push({ name: 'home' });
