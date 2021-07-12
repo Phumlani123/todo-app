@@ -36,13 +36,13 @@
   .ml-auto,
   .list-wrapper,
   .mx-auto {
-      margin-left: auto !important
+      margin-left: auto !important;
   }
   
   .list-wrapper ul li {
     font-size: 1rem;
     padding: .4rem 0;
-    border-bottom: 1px solid #f3f3f3
+    border-bottom: 1px solid #f3f3f3;
   }
   
   .todo-list {
@@ -53,7 +53,7 @@
       .form-check-label {
         input[type="checkbox"]:checked+.input-helper:before {
             background: #65a2b9;
-            border-width: 0
+            border-width: 0;
           }
       }
   }
@@ -80,7 +80,7 @@
     display: block;
     margin-left: .3rem;
     font-size: 1rem;
-    line-height: 1.5
+    line-height: 1.5;
   }
   
   .list-wrapper .completed {
@@ -92,7 +92,7 @@
   .list-wrapper ul li .form-check {
     max-width: 90%;
     margin-top: .25rem;
-    margin-bottom: .25rem
+    margin-bottom: .25rem;
   }
   
 
@@ -104,7 +104,7 @@
                 text-overflow: ellipsis;
                 overflow: hidden;
                 max-width: 100%;
-                white-space: nowrap
+                white-space: nowrap;
               }
           }
       }
@@ -119,7 +119,7 @@
   }
   .form-control {
     min-height: 100%!important;
-    height: 3.3em!important
+    height: 3.3em!important;
 }
 
 @media screen and (max-width: 769px) {
