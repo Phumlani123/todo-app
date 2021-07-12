@@ -15,6 +15,6 @@ Run php artisan migrate
 
 Run npm run watch
 
-Run php artisan serve
+Run php artisan serve (new terminal)
 
 Go to localhost:8000
